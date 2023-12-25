@@ -1,0 +1,160 @@
+<div data-controller="hello" class="mx-3" style="padding-bottom: 120px">
+ <div class="container">
+
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title fw-bold">Бордеран (Border run/Visa run)</h3>
+          <p class="text">
+            <i class="fas fa-circle orange-dot"></i> от официальной тайской компании, с тайскими водителями для максимального комфорта 🚌🌴.
+          </p>
+          <p class="text">
+            <i class="fas fa-circle orange-dot"></i> если у вас есть вопросы о продлении визы или пребывания, сообщите нам заранее, решаем любые проблемы (включая депортацию)!
+          </p>
+          <p class="text">
+            <i class="fas fa-circle orange-dot"></i> граждане Украины могут получить до 3 штампов, Казахстана — до 2 (за один год), Россияне — без ограничений при условии 30-дневного штампа (после 90 дней требуется вылет из страны) ✈️📅.
+          </p>
+          <p class="text">
+            <i class="fas fa-circle orange-dot"></i> ло 01.01.2024 мы преостановили оплату через карты. Оплата только наличными при посадке 💵.
+          </p>
+          <p class="text">
+            <i class="fas fa-circle orange-dot"></i> мы также поможем решить любые вопросы в аэропорту (напишите об этом нам в телеграме или в графе "Дополнительные пожелания") 🛄🤝.
+          </p>
+
+
+          <div class="info">
+            <div class="information">
+              <p>
+                <i class="fab fa-telegram-plane"></i>
+                <a href="https://t.me/Phuket_Border" target="_blank" style="color: orange">Наш телеграм</a>
+                &nbsp;|&nbsp;
+                <i class="fas fa-icons"></i>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" style="color: orange">Наша галерея</a>
+              </p>
+            </div>
+
+            <div class="information">
+              <p><i class="fal fa-user" ></i> Если у вас возникли вопоросы Вы можете связаться с нашим <a href="https://t.me/Phuket_Border_Run_Malaysia" target="_blank" style="color: orange">менеджером</a></p>
+            </div>
+          </div>
+
+            <div class="information">
+              <p><i class="fas fa-map-marker-alt"></i> Наш офис:<span style="color: orange; text-decoration: underline"> 139 Nanai Rd, Pa Tong, Kathu District, Phuket 83150</span></p>
+            </div>
+
+          <% if false %>
+          <div class="social-media">
+            <p>Связаться с нами :</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div><br>
+
+          </div>
+          <% end %>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <%= form_with(url: create_order_path, id: "order-form") do |form| %>
+            <h3 class="title fw-bold">Оставить заявку:</h3>
+            <div class="input-container mt-4">
+              <%= form.text_field :name, class: 'input', required: true %>
+              <label>Как к Вам обращаться?</label>
+            </div>
+
+            <div class="input-container">
+              <p class="text-white">Дата поездки:</p>
+              <%= form.text_field :trip_date, class: 'my-datepicker d-none', placeholder: 'Дата поездки', required: true %>
+              <div class="text-container mt-1">
+                <small class="text-white">
+                  До 01.01.2024 работаем только по средам и воскресеньям, забираем из дома с 4:00 по 5:30. Возвращаемся на остров в 19:00-20:00
+                </small>
+              </div>
+            </div>
+
+            <div class="input-container textarea mt-4">
+              <%= form.text_area :description, class: 'input' %>
+              <label>Дополнительные пожелания</label>
+            </div>
+            <%= form.submit "Отправить", class: "btn" %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title h4 fw-bold" id="galleryModalLabel">Галерея (присылайте свои фото и видео после бордера ссылка группы бордера)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <div class="modal-body">
+            <div class="gallery-grid">
+              <% image_files = Dir.glob("public/gallery/images/*.jpg") %>
+              <% video_files = Dir.glob("public/gallery/videos/*.mp4") %>
+
+            <img id="preview-image" src="" alt="Gallery preview" style="display: none;">
+            <video id="preview-video" controls style="display: none;">
+              <source src="" type="video/mp4">
+            </video>
+          </div>
+
+        <div class="gallery-grid">
+          <% (image_files + video_files).shuffle.each_with_index do |media_path, index| %>
+            <div class="gallery-item <%= ['small', 'medium', 'large'].sample %>" data-index="<%= index %>">
+              <% if media_path.include?('.jpg') %>
+                <img src="/gallery/images/<%= File.basename(media_path) %>" alt="Gallery image">
+              <% else %>
+                <video controls>
+                  <source src="/gallery/videos/<%= File.basename(media_path) %>" type="video/mp4">
+                </video>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <%# <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+      </div> %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="OrderSended">
+  <div class="modal-dialog text-white">
+    <div class="modal-content text-white">
+      <div class="modal-header d-flex flex-wrap justify-content-center">
+        <div class="w-100 text-center d-flex justify-content-center">
+          <div class="icon-wrapper">
+              <i class="fad fa-check" style="font-size: 70px; color: white;"></i>
+          </div>
+
+          <h5 class="text-white h4 ms-2 mt-4">Ваша заявка отправлена</h5>
+        </div>
+      </div>
+      <div class="modal-body text-center">
+        <p>С вами скоро свяжуться по телеграму, приложение можно закрыть</p>
+        <p>🌴Добро пожаловать на Пхукет🌴</p>
+        <p>Хорошего дня 😎</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <div class="credit">Made with <span style="color:tomato">❤</span> by <a href="https://t.me/Sawyeeeer">V Project</a></div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+      </div>
+  </div>
+</div>
