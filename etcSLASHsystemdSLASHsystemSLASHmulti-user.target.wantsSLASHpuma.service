@@ -1,0 +1,19 @@
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+# Uncomment for socket activation (see below)
+# Requires=puma.socket
+
+[Service]
+Type=simple
+
+User=deploy
+
+WorkingDirectory=/home/deploy/borderrun
+
+ExecStart=foreman start
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

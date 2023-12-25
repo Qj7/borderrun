@@ -84,3 +84,4 @@ production:
   database: borderrun_production
   username: borderrun
   password: <%= ENV["BORDERRUN_DATABASE_PASSWORD"] %>
+  
