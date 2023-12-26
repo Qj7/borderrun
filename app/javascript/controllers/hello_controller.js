@@ -54,8 +54,8 @@ export default class extends Controller {
         type: "POST",
         url: '/create_order',
         data: data,
-        beforeSend: function() {
-          // Показывает анимацию загрузки
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
           $('#loadWrapper').show();
         },
         success: function(response) {
