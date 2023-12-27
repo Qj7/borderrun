@@ -3,7 +3,7 @@ require 'logger'
 require_relative 'config/environment'
 
 logger = Logger.new(STDOUT)
-logger.level = Logger::DEBUG
+logger.level = Logger::WARN
 
 Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
   bot.listen do |message|
@@ -69,8 +69,6 @@ Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
 
     rescue => e
       logger.error "Произошла ошибка: #{e.message}"
-      # Здесь можно также залогировать бэктрейс ошибки, если это необходимо
-      logger.error e.backtrace.join("\n")
     end
   end
 end
