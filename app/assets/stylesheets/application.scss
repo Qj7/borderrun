@@ -459,3 +459,8 @@ textarea.input {
   color: orange;
   vertical-align: middle;
 }
+
+.form-check-input:checked {
+  background-color: orange;
+  border-color: orange;
+}

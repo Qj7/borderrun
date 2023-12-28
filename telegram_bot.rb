@@ -22,7 +22,7 @@ Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
             - Официальные бордеры неограниченное количество раз (получение штампа в Майлазии и еще одного на обратном въезде в Таиланда).
                 🇷🇺 РФ: без ограничений.
                 🇺🇦 Украина и 🇰🇿 Казахстан: до 2 штампов в год.
-            - Любы вопросы о продлении визы или пребывания, сообщите нам заранее, решаем любые проблемы, включая депортацию! (Нужно сообщить предварительно)
+            - Помощь в решении любых вопрос в том числе: продлении визы или пребывания, проблемы с въездом. Сообщите нам заранее, решаем любые проблемы, включая депортацию!
             - Встреча в ✈️ аэропорту и помощь с любыми вопросами и проблемами (Сообщите в заявке или менеджеру предварительно)
 
             <b>Почему мы?</b>
@@ -45,8 +45,7 @@ Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
             [
               Telegram::Bot::Types::InlineKeyboardButton.new(
                 text: '🚌 Онлайн заявка',
-                web_app: { url: "#{ENV['PROD_APP_URL']}?telegram_id=#{chat_id}&nickname=#{nickname}" },
-                one_time_keyboard: true
+                web_app: { url: "#{ENV['PROD_APP_URL']}?telegram_id=#{chat_id}&nickname=#{nickname}" }
               )
             ]
           ]
@@ -64,7 +63,7 @@ Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
           message_id_to_delete = sent_message['result']['message_id']
           message_text = message.text || message.caption
 
-          TelegramMessage.create!(telegram_id: chat_id, message_id: message_id = message.message_id, text: message_text.to_s)
+          TelegramMessage.create!(telegram_id: chat_id, message_id: message.message_id, text: message_text.to_s)
           TelegramMessage.create!(telegram_id: chat_id, message_id: message_id_to_delete)
           #perform later cherez 2 chasa udalit
         end

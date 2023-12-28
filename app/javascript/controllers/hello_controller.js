@@ -73,6 +73,13 @@ export default class extends Controller {
         }
       });
     });
+
+    $('.nickname').on('input', function(){
+      var currentValue = $(this).val();
+      if(currentValue.length > 0 && currentValue[0] !== '@'){
+        $(this).val('@' + currentValue);
+      }
+    });
   }
 }
 
