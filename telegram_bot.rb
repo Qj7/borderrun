@@ -3,7 +3,7 @@ require 'logger'
 require_relative 'config/environment'
 
 logger = Logger.new(STDOUT)
-logger.level = Logger::WARN
+logger.level = Logger::DEBUG
 
 Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
   bot.listen do |message|
@@ -11,9 +11,6 @@ Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
       case message
       when Telegram::Bot::Types::Message
         if message.from && !message.from.is_bot
-          chat_id = message.chat.id
-          nickname = message.from.username
-
           caption = <<~HTML
             <b>🚌 Бордер раны от официальной 🇹🇭 Таиской компании!</b>
 
@@ -41,11 +38,15 @@ Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
           photo_path = Rails.root.join('app', 'assets', 'images', 'bstart.png').to_s
           photo = File.open(photo_path, 'rb')
 
+          chat_id = message.chat.id
+          nickname = message.from.username
+
           kb = [
             [
               Telegram::Bot::Types::InlineKeyboardButton.new(
                 text: '🚌 Онлайн заявка',
-                web_app: { url: "#{ENV['PROD_APP_URL']}?telegram_id=#{chat_id}&nickname=#{nickname}" }
+                web_app: { url: "#{ENV['PROD_APP_URL']}?telegram_id=#{chat_id}&nickname=#{nickname}" },
+                one_time_keyboard: true
               )
             ]
           ]
@@ -61,12 +62,13 @@ Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
           )
 
           message_id_to_delete = sent_message['result']['message_id']
-          message_text = sent_message['result']['caption']
-          message = TelegramMessage.create(telegram_id: chat_id, message_id: message_id_to_delete, text: message_text)
+          message_text = message.text || message.caption
+
+          TelegramMessage.create!(telegram_id: chat_id, message_id: message_id = message.message_id, text: message_text.to_s)
+          TelegramMessage.create!(telegram_id: chat_id, message_id: message_id_to_delete)
           #perform later cherez 2 chasa udalit
         end
       end
-
     rescue => e
       logger.error "Произошла ошибка: #{e.message}"
     end

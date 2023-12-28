@@ -1,0 +1,16 @@
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+[Service]
+Type=simple
+User=deployer
+WorkingDirectory=/home/deployer/borderrun
+Environment=RAILS_ENV=production
+
+ExecStart=/bin/bash -lc 'bundle exec foreman start'
+Restart=always
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
