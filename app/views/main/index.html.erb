@@ -5,19 +5,19 @@
         <div class="contact-info">
           <h3 class="title fw-bold">Бордеран (Border run/Visa run)</h3>
           <p class="text">
-            <i class="fas fa-circle orange-dot"></i> от официальной тайской компании, с тайскими водителями для максимального комфорта 🚌🌴.
-          </p>
-          <p class="text">
-            <i class="fas fa-circle orange-dot"></i> если у вас есть вопросы о продлении визы или пребывания, сообщите нам заранее, решаем любые проблемы (включая депортацию)!
-          </p>
-          <p class="text">
-            <i class="fas fa-circle orange-dot"></i> граждане РФ — без ограничений. Граждане Украины и Казахстана — до 2 штампов (за один год)
-          </p>
-          <p class="text">
-            <i class="fas fa-circle orange-dot"></i> до 18.01.2024 мы преостановили оплату через РУ карты. Оплата только <b>наличными</b> 💵 или по 📱 <b>qrcode</b> ПРИ ПОСАДКЕ.
+            <i class="fas fa-circle orange-dot"></i> от официальной таиской компании 🚌
           </p>
           <p class="text">
             <i class="fas fa-circle orange-dot"></i> обед включен 🍝
+          </p>
+          <p class="text">
+            <i class="fas fa-circle orange-dot"></i> помогаем с любыми проблемами (включая депортацию)! Если вам нужна помощь с продлением визы или продлением срока пребыванием - сообщите нам заранее
+          </p>
+          <p class="text">
+            <i class="fas fa-circle orange-dot"></i> граждане РФ — без ограничений. <br>Граждане Украины и Казахстана — до 2 штампов (за один год)
+          </p>
+          <p class="text">
+            <i class="fas fa-circle orange-dot"></i> мы преостановили оплату через РУ карты. Оплата только <b>наличными</b> или по <b>qrcode</b> ПРИ ПОСАДКЕ.
           </p>
           <p class="text">
             <i class="fas fa-circle orange-dot"></i> мы также поможем решить любые вопросы в аэропорту (напишите об этом нам в телеграме или в графе "Дополнительные пожелания или менеджеру") 🛄🤝.
@@ -77,7 +77,7 @@
           <%= form_with(url: create_order_path, id: "order-form") do |form| %>
             <h3 class="title fw-bold">Оставить заявку:</h3>
             <div class="input-container mt-4">
-              <%= form.text_field :name, class: 'input', required: true %>
+              <%= form.text_field :name, class: 'input', maxlength: 20, required: true %>
               <label>Как к Вам обращаться?</label>
             </div>
 
@@ -92,13 +92,13 @@
             </div>
 
             <div class="input-container textarea mt-4">
-              <%= form.text_area :description, class: 'input' %>
+              <%= form.text_area :description, class: 'input', maxlength: 150 %>
               <label>Дополнительные пожелания</label>
             </div>
 
             <% if @ask_telegram %>
               <div class="input-container mt-4">
-                <%= form.text_field :nickname, class: 'input nickname', required: true %>
+                <%= form.text_field :nickname, class: 'input nickname', maxlength: 20, required: true %>
                 <label>Никнейм в телеграме</label>
               </div>
             <% end %>
@@ -170,6 +170,34 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
       </div> %>
     </div>
+  </div>
+</div>
+
+<div class="modal fade" id="adModal">
+  <div class="modal-dialog text-white">
+    <div class="modal-content text-white">
+      <div class="modal-header d-flex flex-wrap justify-content-center">
+        <div class="w-100 text-center d-flex justify-content-center">
+          <div class="icon-wrapper">
+              <i class="fad fa-gift mt-2" style="font-size: 40px; color: white;"></i>
+          </div>
+
+          <h5 class="text-white h4 ms-3 mt-3 fw-bold">Примите участие в розыгрыше!</h5>
+        </div>
+      </div>
+      <div class="modal-body text-center">
+        <p>
+          🎄 С Новым годом! В честь праздника мы организуем специальный розыгрыш: приведите друга и получите шанс выиграть
+          бесплатную поездку. Чтобы участвовать, оформите онлайн заявки (Вы и друг). Затем сообщите имя, под которым ваш друг оставил заявку, нашему
+          <a style="color: orange" href="https://t.me/Phuket_Border_Run_Malaysia">менеджеру</a>.
+          Розыгрыш будет проводиться в формате прямой трансляции в наших <a style="color: orange" href="https://t.me/Phuket_Borderr">сториз</a>
+          после того как наберется 30 участников. Удачи!
+        </p>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <div class="credit">Made with <span style="color:tomato">❤</span> by <a href="https://t.me/Sawyeeeer">V Project</a></div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+      </div>
   </div>
 </div>
 

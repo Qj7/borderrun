@@ -10,6 +10,9 @@ export default class extends Controller {
     });
 
     const modal = new bootstrap.Modal(document.getElementById('OrderSended'));
+    const adModal = new bootstrap.Modal(document.getElementById('adModal'));
+
+    adModal.show();
 
     function focusFunc() {
       let parent = this.parentNode;
