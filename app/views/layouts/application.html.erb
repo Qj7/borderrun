@@ -8,15 +8,15 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= favicon_link_tag asset_path('favicon.png') %>
   </head>
 
   <body>
-
-      <div id="loadWrapper">
-        <div id="loading-bar-spinner" class="spinner">
-          <div class="spinner-icon"></div>
-        </div>
+    <div id="loadWrapper">
+      <div id="loading-bar-spinner" class="spinner">
+        <div class="spinner-icon"></div>
       </div>
-      <%= yield %>
+    </div>
+    <%= yield %>
   </body>
 </html>

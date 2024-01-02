@@ -53,7 +53,7 @@ textarea {
   // font-family: "Poppins", sans-serif;
 }
 
-.container {
+.custom-container {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -335,8 +335,8 @@ textarea.input {
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 1.5rem;
+  .custom-container {
+    padding:1rem;
   }
 
   .contact-info:before {
