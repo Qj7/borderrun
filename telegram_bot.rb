@@ -17,7 +17,7 @@ Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
         if message.from && !message.from.is_bot
           case message.text
           when '/draw'
-            user_ids = Event.where(name: CURRENT_EVENT).pluck(:user_id)
+            user_ids = Event.where(name: CURRENT_EVENT, status: 'Подтвержден').pluck(:user_id)
             orders = Order.where(user_id: user_ids)
             order_names = orders.pluck(:name)
             bot.api.send_message(chat_id: message.chat.id, text: "Участники: #{order_names.join(', ')}")
