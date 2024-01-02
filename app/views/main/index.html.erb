@@ -173,8 +173,9 @@
   </div>
 </div>
 
+<% if @show_ad %>
 <div class="modal fade" id="adModal">
-  <div class="modal-dialog text-white">
+  <div class="modal-dialog text-white modal-dialog-centered">
     <div class="modal-content text-white">
       <div class="modal-header d-flex flex-wrap justify-content-center">
         <div class="w-100 text-center d-flex justify-content-center">
@@ -190,7 +191,7 @@
           бесплатную поездку.<br>Чтобы участвовать, оформите онлайн заявки (Вы и друг). Затем сообщите имя, под которым ваш друг оставил заявку, нашему
           <a style="color: orange" href="https://t.me/Phuket_Border_Run_Malaysia">менеджеру</a>.<br>
           Розыгрыш будет проводиться в формате прямой трансляции в <a style="color: orange" href="https://t.me/Phuket_Borderr">сториз нашей группы</a>
-          после того как наберется 30 участников. <br>Список участников можно посмотреть в нашем <a style="color: orange" href="https://t.me/phuket_border_run_bot">боте</a>. Удачи!
+          после того как наберется 30 участников. <br>Список участников можно посмотреть в нашем <a style="color: orange" href="https://t.me/phuket_border_run_bot">боте</a>. Удачи! 🙏
         </p>
       </div>
       <div class="modal-footer d-flex justify-content-between">
@@ -199,9 +200,10 @@
       </div>
   </div>
 </div>
+<% end %>
 
-<div class="modal fade" id="OrderSended">
-  <div class="modal-dialog text-white">
+<div class="modal fade" id="OrderSended" data-bs-backdrop="static">
+  <div class="modal-dialog text-white modal-dialog-center">
     <div class="modal-content text-white">
       <div class="modal-header d-flex flex-wrap justify-content-center">
         <div class="w-100 text-center d-flex justify-content-center">

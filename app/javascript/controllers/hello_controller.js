@@ -4,15 +4,20 @@ export default class extends Controller {
   connect() {
 
     const inputs = document.querySelectorAll(".input");
+    const modal = new bootstrap.Modal(document.getElementById('OrderSended'));
+
+
+    if (localStorage.getItem('showModalAfterReload') === 'true') {
+      $('#OrderSended').modal('show');
+      localStorage.removeItem('showModalAfterReload'); // Удаляем флаг
+    }
 
     inputs.forEach(input => {
         input.value = ""; // Устанавливает значение каждого input в пустую строку
     });
 
-    const modal = new bootstrap.Modal(document.getElementById('OrderSended'));
-
     if (this.data.get("showAdValue") === "true") {
-      let adModal = new bootstrap.Modal(document.getElementById('adModal'));
+      const adModal = new bootstrap.Modal(document.getElementById('adModal'));
       adModal.show();
     }
 
@@ -64,17 +69,14 @@ export default class extends Controller {
           $('#loadWrapper').show();
         },
         success: function(response) {
-          // Скрывает анимацию загрузки
           $('#loadWrapper').hide();
-          // Показывает модальное окно
-
-          modal.show();
+          localStorage.setItem('showModalAfterReload', 'true');
+          location.reload();
+          // modal.show();
         },
         error: function(error) {
           console.error('Произошла ошибка', error);
-          // Скрывает анимацию загрузки при ошибке
           $('#loadWrapper').hide();
-          // Здесь можете добавить логику для отображения сообщения об ошибке
         }
       });
     });
