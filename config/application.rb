@@ -21,6 +21,9 @@ module Borderrun
     config.assets.js_compressor = :terser
     config.assets.css_compressor = :sass
 
+    config.i18n.default_locale = :ru
+    config.i18n.available_locales = [:en, :ru]
+
     config.active_record.async_query_executor = :global_thread_pool
   end
 end

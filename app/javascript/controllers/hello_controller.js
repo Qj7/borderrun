@@ -13,7 +13,7 @@ export default class extends Controller {
     }
 
     inputs.forEach(input => {
-        input.value = ""; // Устанавливает значение каждого input в пустую строку
+        input.value = "";
     });
 
     if (this.data.get("showAdValue") === "true") {
@@ -38,8 +38,32 @@ export default class extends Controller {
       input.addEventListener("blur", blurFunc);
     });
 
+    $.fn.datepicker.dates = {
+      en: {
+        days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sonntag"],
+
+        daysShort: ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"],
+
+        daysMin: ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"],
+      }
+    }
+
+    ;(function ($) { $.fn.datepicker.language['en'] = {
+      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      months: ['January','February','March','April','May','June', 'July','August','September','October','November','December'],
+      monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      today: 'Today',
+      clear: 'Clear',
+      dateFormat: 'mm/dd/yyyy',
+      timeFormat: 'hh:ii aa',
+      firstDay: 0
+    }; })(jQuery);
+
     $('.my-datepicker').datepicker({
       dateFormat: 'dd-MM-yyyy',
+      language: this.data.get("locale"),
       inline: true,
       minDate: new Date(), // Устанавливает сегодняшнюю дату как минимальную
       onRenderCell: function (date, cellType) {
@@ -47,7 +71,12 @@ export default class extends Controller {
           var day = date.getDay();
           // Дни недели в JavaScript начинаются с 0 (воскресенье) до 6 (суббота),
           // поэтому воскресенье это 0, а среда - 3.
-          if (day != 0 && day != 3) {
+          // if (day != 0 && day != 3) {
+          //   return {
+          //     disabled: true // делаем день недоступным для выбора
+          //   };
+          // }
+          if (day == 2 || day == 4) {
             return {
               disabled: true // делаем день недоступным для выбора
             };
@@ -57,8 +86,8 @@ export default class extends Controller {
     });
 
     $("#order-form").submit(function(event) {
-      event.preventDefault(); // Предотвращает стандартное поведение формы
-      var data = $(this).serialize(); // Сериализует данные формы
+      event.preventDefault();
+      var data = $(this).serialize();
 
       $.ajax({
         type: "POST",

@@ -55,7 +55,7 @@ Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_TOKEN'], logger: logger) do |bot|
             kb = [
               [
                 Telegram::Bot::Types::InlineKeyboardButton.new(
-                  text: '🚌 Онлайн заявка',
+                  text: '🚌 Продолжить',
                   web_app: { url: "#{ENV['PROD_APP_URL']}?telegram_id=#{chat_id}&nickname=#{nickname}" }
                 )
               ]

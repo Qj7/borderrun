@@ -8,10 +8,10 @@ import 'popper';
 import 'bootstrap';
 import 'datepicker';
 
-window.onload = function() {
-  var loadWrapper = document.getElementById('loadWrapper');
-  loadWrapper.style.display = 'none';
-};
+// window.onload = function() {
+//   var loadWrapper = document.getElementById('loadWrapper');
+//   loadWrapper.style.display = 'none';
+// };
 
 document.addEventListener('turbo:before-render', function() {
   loadWrapper.style.display = 'block';

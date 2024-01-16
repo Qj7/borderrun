@@ -1,33 +1,50 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  border_run: "Border Run"
+  student_visa: "Student Visa"
+  border_run_description_html: "<b>How the border run happens:</b> 🚌 the driver comes to your hotel or condo, picks you up and takes you to Malaysia, where you get two stamps at the entrance and exit. Then back home, you will be home on the same day. We will also bring you back home 🏝♻️🏠 lunch included 🍝"
+  schedule: "Schedule"
+  satun: "Satun"
+  satun_working_days: "(Monday, Wednesday, Friday, Saturday, Sunday)"
+  ranong: "Ranong"
+  ranong_working_days: "(Wednesday, Saturday)"
+  satun_days_30: "30 days - 3600 ฿"
+  satun_days_90: "90 days - 4600 ฿"
+  ranong_days_30: "30 days - 4000 ฿"
+  ranong_days_90: "90 days - 4600 ฿"
+  price: "Price"
+  number_of_border_runs_html: "Number of border runs:<br>🇷🇺 Citizens of the Russian Federation - no limits.<br>🇺🇦 Citizens of Ukraine and <br>🇰🇿 Kazakhstan - up to 2 stamps❗️ (per year)<br>🇪🇺 Citizens of Europe - unlimited times in Ranong | 2 stamps per year❗️ in Satun"
+  help_with_any_problems_html: 'We help with any problems (including deportation)❗️ Report any issues to <a href="https://t.me/Phuket_Border_Run_Malaysia" target="_blank" style="color: orange">the manager</a> in advance. We also help with any airport issues ✈️ (contact the manager) 🛄🤝'
+  our_telegram: "Our Telegram"
+  our_gallery: "Our Gallery"
+  contact_questions_html: '📢 Have questions? You can contact our <a href="https://t.me/Phuket_Border_Run_Malaysia" target="_blank" style="color: orange"> manager</a>'
+  leave_request: "Leave a Request"
+  how_to_address: "How should we address you?"
+  trip_date: "Date of Trip"
+  additional_wishes: "Additional Wishes"
+  telegram_nickname: "Telegram Nickname"
+  choose_duration: "Choose Duration"
+  send: "Send"
+  gallery_modal_title: "Gallery"
+  participate_in_draw: "Participate in the Draw!"
+  new_year_greeting: "Happy New Year! In celebration, we are organizing a special draw: bring a friend and get a chance to win a free trip."
+  draw_details: "To participate, submit online applications (you and your friend). Then tell our manager the name under which your friend left the application."
+  draw_live_stream: "The draw will be conducted in a live stream in our group stories after we have 30 participants."
+  view_participants_list: "View the list of participants in our bot"
+  good_luck: "Good luck!"
+  application_submitted: "Your application has been submitted"
+  will_contact_soon: "We will contact you soon on Telegram, you can close the application"
+  welcome_to_phuket: "Welcome to Phuket"
+  have_a_nice_day: "Have a nice day"
+  close: "Close"
+  made_with_love: "Made with ❤ by V Project"
+  leave_request: "Leave a Request:"
+  how_to_address: "How should we address you?"
+  trip_date: "Date of Trip:"
+  additional_wishes: "Additional Wishes"
+  telegram_nickname: "Telegram Nickname"
+  choose_duration: "Choose Duration"
+  send: "Send"
+  pickup_and_return_time_html: "Pickup from your home between 04:00-05:30<br>Return to the island between 19:00-20:00"
+  duration_30_days: "30 days"
+  duration_90_days: "90 days"
+  duration_1_year: "1 year (visa)"

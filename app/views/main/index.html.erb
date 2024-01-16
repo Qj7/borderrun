@@ -1,151 +1,176 @@
-<div data-controller="hello" data-hello-show-ad-value="<%= @show_ad %>" class="mx-3" style="padding-bottom: 120px">
+<div data-controller="hello" data-hello-locale="<%= @current_locale %>" data-hello-show-ad-value="<%= @show_ad %>" class="mx-3" style="padding-bottom: 120px">
  <div class="custom-container">
+  <div class="form">
+    <div class="contact-info">
 
-      <div class="form">
-        <div class="contact-info">
-          <h3 class="title fw-bold">Бордеран (Border run/Visa run)</h3>
+      <div class="dropdown float-end">
+        <button class="btn btn-secondary bg-transparent dropdown-toggle btn-outline-orange" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="<%= asset_path("flags/#{@current_locale}.png")%>" width="17px" />
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li>
+            <a class="dropdown-item" href="<%= root_path(locale: 'en') %>"><img src="<%= asset_path("flags/en.png")%>" width="17px" /> English</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="<%= root_path(locale: 'ru') %>"><img src="<%= asset_path("flags/ru.png")%>" width="17px" /> Русский</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="nav nav-underline" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+            <%= t('border_run') %>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+            <%= t('student_visa') %>
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content text-white" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+          <p class="text"><i class="fas fa-circle orange-dot"></i> <%= t('border_run_description_html') %></p>
+          <hr>
           <p class="text">
-            <i class="fas fa-circle orange-dot"></i> от официальной таиской компании 🚌
+            <i class="fas fa-circle orange-dot"></i> <%= t('schedule')%> <br>
+            <b>🚌 <%= t('satun')%></b><br><%= t('satun_working_days')%><br>
+              <i class="fad fa-calendar-alt"></i> <%= t('satun_days_30')%><br>
+              <i class="fad fa-calendar-alt"></i> <%= t('satun_days_90')%><br style="margin-bottom: 10px">
+              <b>🚌 <%= t('ranong')%></b><br><%= t('ranong_working_days')%><br>
+              <i class="fad fa-calendar-alt"></i> <%= t('ranong_days_30')%><br>
+              <i class="fad fa-calendar-alt"></i> <%= t('ranong_days_90')%><br>
           </p>
+          <hr>
           <p class="text">
-            <i class="fas fa-circle orange-dot"></i> обед включен 🍝
+            <i class="fas fa-circle orange-dot"></i> <%= t('number_of_border_runs_html') %>
           </p>
-          <p class="text">
-            <i class="fas fa-circle orange-dot"></i> помогаем с любыми проблемами (включая депортацию)! О любых проблемах сообщите <a href="https://t.me/Phuket_Border_Run_Malaysia" target="_blank" style="color: orange">менеджеру</a> заранее
-          </p>
-          <p class="text">
-            <i class="fas fa-circle orange-dot"></i> граждане РФ — без ограничений. <br>Граждане Украины и Казахстана — до 2 штампов (за один год)
-          </p>
-          <p class="text">
+          <hr>
+          <%# <p class="text">
             <i class="fas fa-circle orange-dot"></i> мы преостановили оплату через РУ карты. Оплата только <b>наличными</b> или по <b>qrcode</b> ПРИ ПОСАДКЕ
-          </p>
-          <p class="text">
-            <i class="fas fa-circle orange-dot"></i> мы также поможем решить любые вопросы в аэропорту (напишите об этом нам в телеграме или в графе "Дополнительные пожелания или менеджеру") 🛄🤝
-          </p>
-
-
-          <div class="info">
-            <div class="information">
-              <p>
-                <i class="fab fa-telegram-plane"></i>
-                <a href="https://t.me/Phuket_Border" target="_blank" style="color: orange">Наш телеграм</a>
-                &nbsp;|&nbsp;
-                <i class="fas fa-icons"></i>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" style="color: orange">Наша галерея</a>
-              </p>
-            </div>
-
-            <div class="information">
-              <p><i class="fas fa-user-headset" ></i> Остались вопросы? Вы можете связаться с нашими менеджерами:
-                <br> <a href="https://t.me/Phuket_Border_Run_Malaysia" target="_blank" style="color: orange">Бордер ран</a> |
-                <a href="https://t.me/Sawyeeeer" target="_blank" style="color: orange">Виза</a>
-              </p>
-
-            </div>
-          </div>
-
-            <%# <div class="information">
-              <p><i class="fas fa-map-marker-alt"></i> Наш офис:<span style="color: orange; text-decoration: underline"> 139 Nanai Rd, Pa Tong, Kathu District, Phuket 83150</span></p>
-            </div> %>
-
-          <% if false %>
-          <div class="social-media">
-            <p>Связаться с нами :</p>
-            <div class="social-icons">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div><br>
-
-          </div>
-          <% end %>
+          </p> %>
         </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+      </div>
 
-        <div class="contact-form">
-          <span class="circle one"></span>
-          <span class="circle two"></span>
+      <p class="text">
+        <i class="fas fa-circle orange-dot"></i> <%= t('help_with_any_problems_html') %>
+      </p>
 
-          <%= form_with(url: create_order_path, id: "order-form") do |form| %>
-            <h3 class="title fw-bold">Оставить заявку:</h3>
-            <div class="input-container mt-4">
-              <%= form.text_field :name, class: 'input', maxlength: 20, required: true %>
-              <label>Как к Вам обращаться?</label>
-            </div>
+      <%# <h3 class="title fw-bold">Бордер ран | Студенческая виза</h3> %>
 
-            <div class="input-container">
-              <p class="text-white">Дата поездки:</p>
-              <%= form.text_field :trip_date, class: 'my-datepicker d-none', placeholder: 'Дата поездки', required: true %>
-              <div class="text-container mt-1">
-                <small class="text-white">
-                  На данный момент работаем только по средам и воскресеньям, забираем из дома в 04:00-05:30<br>Возвращаемся на остров в 19:00-20:00
-                </small>
-              </div>
-            </div>
-
-            <div class="input-container textarea mt-4">
-              <%= form.text_area :description, class: 'input', maxlength: 150 %>
-              <label>Дополнительные пожелания</label>
-            </div>
-
-            <% if @ask_telegram %>
-              <div class="input-container mt-4">
-                <%= form.text_field :nickname, class: 'input nickname', maxlength: 20, required: true %>
-                <label>Никнейм в телеграме</label>
-              </div>
-            <% end %>
-
-            <div class="text-white">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="duration" id="30" value="30" required>
-                <label class="form-check-label" for="30">
-                  30 дней
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="duration" id="90" value="90" required>
-                <label class="form-check-label" for="90">
-                  90 дней
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="duration" id="365" value="365" required>
-                <label class="form-check-label" for="365">
-                  1 год (виза)
-                </label>
-              </div>
-            </div>
-
-
-            <%= form.submit "Отправить", class: "btn mt-4" %>
-
-          <% end %>
+      <div class="info">
+        <div class="information">
+          <p>
+            <i class="fab fa-telegram-plane"></i>
+            <a href="https://t.me/Phuket_Border" target="_blank" style="color: orange"><%= t('our_telegram') %></a>
+            &nbsp;|&nbsp;
+            <i class="fas fa-icons"></i>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" style="color: orange"><%= t('our_gallery') %></a>
+            <br><span style="margin-left: -3px"><%= t('contact_questions_html') %></span>
+          </p>
         </div>
 
       </div>
+
+        <%# <div class="information">
+          <p><i class="fas fa-map-marker-alt"></i> Наш офис:<span style="color: orange; text-decoration: underline"> 139 Nanai Rd, Pa Tong, Kathu District, Phuket 83150</span></p>
+        </div> %>
+
+      <% if false %>
+      <div class="social-media">
+        <p>Связаться с нами :</p>
+        <div class="social-icons">
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div><br>
+
+      </div>
+      <% end %>
     </div>
+
+    <div class="contact-form">
+      <span class="circle one"></span>
+      <span class="circle two"></span>
+
+      <%= form_with(url: create_order_path, id: "order-form") do |form| %>
+        <h3 class="title fw-bold"><%= t('leave_request')%></h3>
+        <div class="input-container mt-4">
+          <%= form.text_field :name, class: 'input', maxlength: 20, required: true %>
+          <label><%= t('how_to_address')%></label>
+        </div>
+
+        <div class="input-container">
+          <p class="text-white"><%= t('trip_date')%></p>
+          <%= form.text_field :trip_date, class: 'my-datepicker d-none', required: true %>
+          <div class="text-container mt-1">
+            <small class="text-white">
+              <%= t('pickup_and_return_time_html')%>
+            </small>
+          </div>
+        </div>
+
+        <div class="input-container textarea mt-4">
+          <%= form.text_area :description, class: 'input', maxlength: 150 %>
+          <label><%= t('additional_wishes') %></label>
+        </div>
+
+        <% if @ask_telegram %>
+          <div class="input-container mt-4">
+            <%= form.text_field :nickname, class: 'input nickname', maxlength: 20, required: true %>
+            <label><%= t('telegram_nickname') %></label>
+          </div>
+        <% end %>
+
+        <div class="text-white">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="duration" id="30" value="30" required>
+            <label class="form-check-label" for="30">
+              <%= t('duration_30_days') %>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="duration" id="90" value="90" required>
+            <label class="form-check-label" for="90">
+              <%= t('duration_90_days') %>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="duration" id="365" value="365" required>
+            <label class="form-check-label" for="365">
+              <%= t('duration_1_year') %>
+            </label>
+          </div>
+        </div>
+        <%= form.submit t('send'), class: "btn mt-4" %>
+      <% end %>
+    </div>
+  </div>
+  </div>
 </div>
 
 <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title h4 fw-bold" id="galleryModalLabel">Галерея (присылайте свои фото и видео после бордера ссылка группы бордера)</h5>
+          <h5 class="modal-title h4 fw-bold" id="galleryModalLabel">Галерея</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
           <div class="modal-body">
             <div class="gallery-grid">
               <% image_files = Dir.glob("public/gallery/images/*.jpg") %>
               <% video_files = Dir.glob("public/gallery/videos/*.mp4") %>
-
             <img id="preview-image" src="" alt="Gallery preview" style="display: none;">
             <video id="preview-video" controls style="display: none;">
               <source src="" type="video/mp4">

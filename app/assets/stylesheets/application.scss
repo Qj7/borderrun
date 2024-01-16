@@ -110,7 +110,7 @@ form {
 .title {
   color: #fff;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1;
   margin-bottom: 0.7rem;
 }
@@ -463,4 +463,21 @@ textarea.input {
 .form-check-input:checked {
   background-color: orange;
   border-color: orange;
+}
+
+.nav-underline .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: orange;
+  border-color: orange;
+}
+
+.nav-underline .nav-link, .nav-tabs .nav-item.show .nav-link {
+  color: grey;
+}
+
+.nav-underline .nav-link, .nav-tabs .nav-item.show .nav-link:focus {
+  color: orange;
+}
+
+.btn-outline-orange {
+  border-color: orange !important;
 }
