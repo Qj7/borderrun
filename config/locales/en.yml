@@ -48,3 +48,9 @@ en:
   duration_30_days: "30 days"
   duration_90_days: "90 days"
   duration_1_year: "1 year (visa)"
+  modal_new_year_header: "Participate in the draw!"
+  modal_new_year_html: '🎄 Happy New Year! In celebration of the holiday, we are organizing a special draw: bring a friend and get a chance to win
+          a free trip.<br>To participate, submit online applications (you and your friend). Then, inform our
+          <a style="color: orange" href="https://t.me/Phuket_Border_Run_Malaysia">manager</a> about the name under which your friend left the application.<br>
+          The draw will be conducted in a live stream in <a style="color: orange" href="https://t.me/Phuket_Borderr">our group stories</a>
+          once we have 30 participants. <br>You can view the list of participants in our <a style="color: orange" href="https://t.me/phuket_border_run_bot">bot</a>. Good luck! 🙏'
