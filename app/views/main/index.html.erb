@@ -232,17 +232,15 @@
               <i class="fad fa-check" style="font-size: 70px; color: white;"></i>
           </div>
 
-          <h5 class="text-white h4 ms-2 mt-4">Ваша заявка отправлена</h5>
+          <h5 class="text-white h4 ms-2 mt-4"><%= t('modal_order_header') %></h5>
         </div>
       </div>
       <div class="modal-body text-center">
-        <p>С вами скоро свяжуться по телеграму, приложение можно закрыть</p>
-        <p>🌴Добро пожаловать на Пхукет🌴</p>
-        <p>Хорошего дня 😎</p>
+        <%= t('modal_order_text_html') %>
       </div>
       <div class="modal-footer d-flex justify-content-between">
         <div class="credit">Made with <span style="color:tomato">❤</span> by <a href="https://t.me/Sawyeeeer">V Project</a></div>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= t('close') %></button>
       </div>
   </div>
 </div>
