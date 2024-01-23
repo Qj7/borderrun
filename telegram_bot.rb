@@ -5,7 +5,7 @@ require_relative 'config/environment'
 logger = Logger.new(STDOUT)
 logger.level = Logger::DEBUG
 
-bot = Telegram::Bot::Client.new(token, logger: logger)
+bot = Telegram::Bot::Client.new(ENV['TELEGRAM_BOT_TOKEN'], logger: logger)
 
 Signal.trap('INT') do
   bot.stop
