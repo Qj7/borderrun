@@ -41,7 +41,6 @@ class TelegramApi
     response = http.request(request)
     response.body
   end
-
   def send_message_to_telegram(message, photo = nil, reply_markup = nil)
     @url = URI.parse("https://api.telegram.org/bot#{@api_token}/sendPhoto") if photo
     request = Net::HTTP::Post.new(@url.request_uri)

@@ -9,10 +9,13 @@
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
           <li>
-            <a class="dropdown-item" href="<%= root_path(locale: 'en') %>"><img src="<%= asset_path("flags/en.png")%>" width="17px" /> English</a>
-          </li>
+            <%= link_to root_path(locale: 'en'), class: "dropdown-item" do %>
+              <img src="<%= asset_path("flags/en.png")%>" width="17px" /> Engllish
+            <% end %>          </li>
           <li>
-            <a class="dropdown-item" href="<%= root_path(locale: 'ru') %>"><img src="<%= asset_path("flags/ru.png")%>" width="17px" /> Русский</a>
+            <%= link_to root_path(locale: 'ru'), class: "dropdown-item" do %>
+              <img src="<%= asset_path("flags/ru.png")%>" width="17px" /> Русский
+            <% end %>
           </li>
         </ul>
       </div>

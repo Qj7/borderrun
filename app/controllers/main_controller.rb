@@ -42,7 +42,7 @@ class MainController < ApplicationController
     ~•~•~•~•~•~•~•~•~•~•~•~•~•~•~
     MESSAGE
 
-    TelegramApi.new('-1002075081823').send_message_to_telegram(message)
+    TelegramApi.new(ENV['WORKING_CHAT_ID']).send_message_to_telegram(message)
 
     render json: {}, status: :ok
   end
