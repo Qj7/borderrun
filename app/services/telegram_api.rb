@@ -32,7 +32,7 @@ class TelegramApi
     request = Net::HTTP::Post::Multipart.new(url.path,
       'chat_id' => @chat_id,
       'reply_markup' => reply_markup.to_json,
-      'photo' => UploadIO.new(photo, 'image/png', 'gstart.jpg')
+      'photo' => UploadIO.new(photo, 'image/png', 'bstart.jpg')
     )
 
     http = Net::HTTP.new(url.host, url.port)

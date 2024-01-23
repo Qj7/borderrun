@@ -4,7 +4,6 @@ class MainController < ApplicationController
   DISPLAYED_EVENT_NAME = "Новогодий розыгрыш 🎁"
   def index
     @current_locale = I18n.locale.to_s
-    p @current_locale
     @ask_telegram = true unless params && params[:nickname]
     @show_ad = true unless current_or_guest_user.events.where(name: CURRENT_EVENT).any?
 
