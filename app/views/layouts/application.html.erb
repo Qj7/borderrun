@@ -12,12 +12,17 @@
   </head>
 
   <body>
-    <div id="loadWrapper">
-      <div id="loading-bar-spinner" class="spinner">
-        <div class="spinner-icon"></div>
+   <div class="bg-video-wrap">
+    <video src="/background.mp4" loop muted autoplay>
+    </video>
+      <div class="video-overlay"></div>
+      <div id="loadWrapper">
+        <div id="loading-bar-spinner" class="spinner">
+          <div class="spinner-icon"></div>
+        </div>
       </div>
+      <%= yield %>
     </div>
-    <%= yield %>
 
     <!-- Yandex.Metrika counter -->
     <% if Rails.env.production? %>

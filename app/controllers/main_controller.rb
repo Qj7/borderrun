@@ -4,13 +4,20 @@ class MainController < ApplicationController
   DISPLAYED_EVENT_NAME = "Новогодий розыгрыш 🎁"
   def index
     @current_locale = I18n.locale.to_s
-    @ask_telegram = true unless params && params[:nickname]
+    @ask_telegram = true unless params[:nickname]
     @show_ad = true unless current_or_guest_user.events.where(name: CURRENT_EVENT).any?
 
     current_or_guest_user.update!(
       telegram_nickname: params[:nickname],
       telegram_id: params[:telegram_id]
     ) if current_or_guest_user.telegram_id.nil?
+  end
+
+  def ad
+    puts 'AD sended'
+    message = "Переход c phuketborder.run тг ник: #{current_or_guest_user.telegram_nickname}"
+    TelegramApi.new('207243283').send_message_to_telegram(message)
+    redirect_to "https://t.me/phuket_football", target: "_blank", allow_other_host: true
   end
 
   def create_order

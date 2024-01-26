@@ -1,7 +1,7 @@
 en:
   border_run: "Border Run"
   student_visa: "Student Visa"
-  border_run_description_html: "<b>How the border run happens:</b> 🚌 the driver comes to your hotel or condo, picks you up and takes you to Malaysia, where you get two stamps at the entrance and exit. Then back home, you will be home on the same day. We will also bring you back home 🏝♻️🏠 lunch included 🍝"
+  border_run_description_html: "<b>How the border run happens:</b><br>🚌 the driver comes to your hotel or condo, picks you up and takes you to Malaysia, where you get two stamps at the entrance and exit. Then back home, you will be home on the same day. We will also bring you back home 🏝♻️🏠 lunch included 🍝"
   schedule: "Schedule"
   satun: "Satun"
   satun_working_days: "(Monday, Wednesday, Friday, Saturday, Sunday)"
@@ -56,3 +56,6 @@ en:
           once we have 30 participants. <br>You can view the list of participants in our <a style="color: orange" href="https://t.me/phuket_border_run_bot">bot</a>. Good luck! 🙏'
   modal_order_header: "Your application has been sent!"
   modal_order_text_html: 'We will soon contact you via Telegram, you can close the application<br>🌴Welcome to Phuket🌴<br>Have a nice day 😎'
+  student_visa_text_1_html: '<b>One-Year Student Visa</b><br>✅ legal way to stay on the island. Study in the best schools!<br>Quality education in English, Thai. For an additional fee of 10,000 ฿, you can study Chinese, French, and others upon request.<br>📝 Many years of successful work - unprecedented experience with no counterparts on the island. Thousands of grateful students. Always 100% visa approval, reliable and on time.<br>⚽️🚶‍♂️Our guide, <a href="/ad" target="_blank" style="color: orange">a local football star</a>, will advise and answer all your questions. Will help you choose the optimal school according to your situation and can accompany you.'
+  student_visa_text_2_html: '<b>Conditions:</b><br> 🖃 the last stamp in the passport should be 30 days (if its 90, you need to go to the 🚌 border early and get a 30❗️ stamp)<br>📆 Stay on the island for no more than 4 months (If you stay more than 4 months, the only option is the school in Krabi❗️)'
+  student_visa_text_3_html: '<b>Price:</b><br>Phuket - 38,000 ฿ + 3 extensions at 5,000 ฿ each within the year<br>Krabi - 44,000 ฿ + 3 extensions at 3,000 ฿, as well as an additional <br>guide fee (Krabi only): 2,500 ฿ (consultation) | 5,000 ฿ (with accompaniment)'

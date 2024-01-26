@@ -1,4 +1,4 @@
-<div data-controller="hello" data-hello-locale="<%= @current_locale %>" data-hello-show-ad-value="<%= @show_ad %>" class="mx-3" style="padding-bottom: 120px">
+<div data-controller="hello" data-hello-locale="<%= @current_locale %>" data-hello-show-ad-value="<%= @show_ad %>">
  <div class="custom-container">
   <div class="form">
     <div class="contact-info">
@@ -54,7 +54,14 @@
             <i class="fas fa-circle orange-dot"></i> мы преостановили оплату через РУ карты. Оплата только <b>наличными</b> или по <b>qrcode</b> ПРИ ПОСАДКЕ
           </p> %>
         </div>
-        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+          <p class="text"><i class="fas fa-circle orange-dot"></i> <%= t('student_visa_text_1_html') %></p>
+          <hr>
+          <p class="text"><i class="fas fa-circle orange-dot"></i> <%= t('student_visa_text_2_html') %></p>
+          <hr>
+          <p class="text"><i class="fas fa-circle orange-dot"></i> <%= t('student_visa_text_3_html') %></p>
+          <hr>
+        </div>
       </div>
 
       <p class="text">
@@ -202,7 +209,7 @@
 </div>
 
 <% if @show_ad %>
-<div class="modal fade" id="adModal">
+<div class="modal fade" id="adModal" data-bs-backdrop="static">
   <div class="modal-dialog text-white modal-dialog-centered">
     <div class="modal-content text-white">
       <div class="modal-header d-flex flex-wrap justify-content-center">

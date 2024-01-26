@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "main#index"
 
+  get 'ad', to: 'main#ad'
+
   post 'create_order', to: 'main#create_order'
 end
