@@ -23,6 +23,7 @@ module Borderrun
 
     config.i18n.default_locale = :en
     config.i18n.available_locales = [:en, :ru]
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
 
     config.active_record.async_query_executor = :global_thread_pool
   end

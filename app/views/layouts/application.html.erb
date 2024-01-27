@@ -13,8 +13,7 @@
 
   <body>
    <div class="bg-video-wrap">
-    <video src="/background.mp4" loop muted autoplay>
-    </video>
+    <%= video_tag "background.mp4", controls: false, autoplay: true, muted: true, loop: true, class: "" %>
       <div class="video-overlay"></div>
       <div id="loadWrapper">
         <div id="loading-bar-spinner" class="spinner">
