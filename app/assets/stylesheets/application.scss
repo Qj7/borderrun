@@ -91,6 +91,7 @@ video {
   min-height: 100vh;
   max-height: 100vh;
   padding: 2rem;
+  padding-bottom: 40px;
   background-color: transparent;
   overflow: auto;
   display: flex;
@@ -374,6 +375,7 @@ textarea.input {
 @media (max-width: 480px) {
   .custom-container {
     padding:1rem;
+    padding-bottom: 80px;
   }
 
   .contact-info:before {
