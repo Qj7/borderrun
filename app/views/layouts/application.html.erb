@@ -12,12 +12,10 @@
   </head>
 
   <body>
-   <div class="bg-video-wrap">
-    <%= video_tag "background.mp4", controls: false, autoplay: true, muted: true, loop: true, class: "" %>
-    <video playsinline autoplay muted loop>
-      <source src="<%= asset_path('background.mp4') %>" type="video/mp4">
-    </video>
-      <div class="video-overlay"></div>
+    <div class="bg-video-wrap">
+      <video controls disablePictureInPicture controlsList="nodownload" playsinline autoplay muted loop>
+        <source src="<%= asset_path('background.mp4') %>" type="video/webm">
+      </video>
       <div id="loadWrapper">
         <div id="loading-bar-spinner" class="spinner">
           <div class="spinner-icon"></div>
