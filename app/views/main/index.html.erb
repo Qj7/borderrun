@@ -9,11 +9,11 @@
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
           <li>
-            <%= link_to root_path(locale: 'en'), class: "dropdown-item" do %>
+            <%= link_to root_path(locale: 'en'), class: "dropdown-item", method: :get do %>
               <img src="<%= asset_path("flags/en.png")%>" width="17px" /> Engllish
             <% end %>          </li>
           <li>
-            <%= link_to root_path(locale: 'ru'), class: "dropdown-item" do %>
+            <%= link_to root_path(locale: 'ru'), class: "dropdown-item", method: :get do %>
               <img src="<%= asset_path("flags/ru.png")%>" width="17px" /> Русский
             <% end %>
           </li>
