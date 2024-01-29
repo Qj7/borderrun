@@ -13,7 +13,7 @@
 
   <body>
     <div class="bg-video-wrap">
-      <video disablePictureInPicture controls="false" autoplay muted loop >
+      <video disablePictureInPicture controls="false" preload="none" autoplay muted loop >
         <source src="<%= asset_path('background.mp4') %>" type="video/mp4">
         <source src="<%= asset_path('background.webm') %>" type="video/webm">
       </video>
