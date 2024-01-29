@@ -13,16 +13,19 @@
 
   <body>
     <div class="bg-video-wrap">
-      <video disablePictureInPicture controls="false" preload="none" autoplay muted loop >
-        <source src="<%= asset_path('background.mp4') %>" type="video/mp4">
-        <source src="<%= asset_path('background.webm') %>" type="video/webm">
-      </video>
-      <div id="loadWrapper">
+      <div class="video-overlay">
+        <video disablePictureInPicture controls="false" preload="none" playsinline autoplay muted loop >
+          <source src="<%= asset_path('background.mp4') %>" type="video/mp4">
+          <source src="<%= asset_path('background.webm') %>" type="video/webm">
+        </video>
+              <div id="loadWrapper">
         <div id="loading-bar-spinner" class="spinner">
           <div class="spinner-icon"></div>
         </div>
       </div>
       <%= yield %>
+      </div>
+
     </div>
 
     <!-- Yandex.Metrika counter -->
