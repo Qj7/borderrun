@@ -356,10 +356,10 @@ textarea.input {
 
 @media (max-width: 850px) {
   .form {
-    margin-top: 65px;
+    margin-top: 125px;
     grid-template-columns: 1fr;
     opacity: 0.84;
-    margin-bottom: 80px;
+    margin-bottom: 125px;
   }
 
   .contact-info:before {
@@ -398,8 +398,6 @@ textarea.input {
 @media (max-width: 480px) {
   .custom-container {
     padding:1.2rem;
-    padding-top: 45px;
-    padding-bottom: 65px;
   }
 
   .contact-info:before {
