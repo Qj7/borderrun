@@ -21,7 +21,7 @@ module Borderrun
     config.assets.js_compressor = :terser
     config.assets.css_compressor = :sass
 
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :ru
     config.i18n.available_locales = [:en, :ru]
     config.assets.paths << Rails.root.join('app', 'assets', 'videos')
 

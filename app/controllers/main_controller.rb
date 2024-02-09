@@ -5,7 +5,8 @@ class MainController < ApplicationController
   def index
     @current_locale = I18n.locale.to_s
     @ask_telegram = true unless params[:nickname]
-    @show_ad = true unless current_or_guest_user.events.where(name: CURRENT_EVENT).any?
+    #@show_ad = true unless current_or_guest_user.events.where(name: CURRENT_EVENT).any?
+    @show_ad = false
 
     current_or_guest_user.update!(
       telegram_nickname: params[:nickname],
